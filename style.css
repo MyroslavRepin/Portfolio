@@ -497,7 +497,9 @@ svg {
     height: auto;
 }
 
-
+.phone-number-content p{
+  color: #fff;
+}
 .main-email{
     border-radius: 5px;
     background-color: rgb(255, 255, 255, 0.04);

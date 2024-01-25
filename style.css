@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Dhurjati&family=Merriweather+Sans:ital,wght@0,300;0,500;0,700;1,300&family=Michroma&family=Mohave:wght@400;500&family=Trispace&family=Ubuntu:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  bottom: none;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    background-color: #18315A;
+}
+.container {
+  max-width: 1050px;
+  width: 100%;
+  margin: auto;
+}
+.content__margin li{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.content__margin{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+h2{
+    font-family: Merriweather Sans;
+    font-weight: 300;
+}
+/*-----------BURGER MENU-----------*/
+.navbar {
+    background-color: #18315A;
+    position: fixed;
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+}
+
+.navbar .menu-items {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+.navbar .nav-container li {
+    list-style: none;
+}
+
+.navbar .nav-container a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0.7rem;
+}
+
+.navbar .nav-container a:hover{
+    font-weight: bolder;
+}
+
+.nav-container {
+    display: block;
+    position: relative;
+    height: 60px;
+}
+
+.nav-container .checkbox {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 32px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.nav-container .hamburger-lines {
+    display: block;
+    height: 26px;
+    width: 32px;
+    position: absolute;
+    top: 10px;
+    left: 1%;
+    margin: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-container .hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #FC3D56;
+}
+
+.nav-container .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.navbar .menu-items {
+    background-color: #18315A;
+    padding-top: 120px;
+    height: 100vh;
+    width: 100%;
+    left: 50%;
+    transform: translate(-150%);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+    z-index: 999;
+}
+
+.navbar .menu-items li {
+    color: #fff;
+    margin-left: 10px;
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    z-index: 999;
+}
+.menu-items-color a{
+    color: #fff;
+}
+.logo{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 1rem;
+    color: #fff;
+}
+h1{
+    font-family: Michroma;
+}
+h2 span{
+    color: #FC3D56;
+    font-family: Michroma;
+}
+.nav-container input[type="checkbox"]:checked ~ .menu-items {
+    transform: translateX(0);
+}
+.nav-container input[type="checkbox"]:checked ~ .content__margin{
+    margin: 0;
+}
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-45deg);
+}
+
+/*.nav-container input[type="checkbox"]:checked ~ .logo{}*/
+.nav-container input[type="checkbox"]:checked ~ .content{
+    display: none;
+}
+.nav-container input[type="checkbox"]:checked ~ .content__margin .content {
+    display: none;
+}
+
+.navbar{
+    display: none;
+}
+.nav-container input[type="checkbox"]:checked ~ .body-link  li{
+    display: none;
+}
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .title-phone-number{
+    display: none;
+}
+/* ----menu----------------*/
+.header{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 50;
+}
+
+.content{
+    padding-top: 58px;
+}
+.header__logo{
+    display: inline;
+}
+.header__list {
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    background-color: #18315A;
+    box-shadow: 0px 5px 2px #18315A;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.header__link{
+    list-style-type: none;
+    color: #ffffff;
+    font-family: "Michroma";
+    margin-top: 13px;
+    font-size: 18px;
+}
+.header__link span{
+    color: #FC3D56;
+    line-height: 0;
+    margin-top: -10px;
+}
+.header__link:hover{
+    margin-bottom: 5px;
+    transition: 0.3s;
+    letter-spacing: 3px;
+    color: #FC3D56;
+}
+.header__link span:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.header__link span:not(:hover){
+    transition: 0.3s;
+}
+.header__link:not(:hover){
+    transition: 0.3s;
+}
+/*-----HEDALINE---------*/
+.body__headline{
+    margin-top: 100px;
+}
+.headline h2{
+    line-height: 55px;
+}
+.headline h2:first-child{
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 200;
+    margin-left: 2px;
+}
+.headline h2:last-child{
+    font-size: 25px;
+    font-weight: 600;
+}
+.headline h1{
+    font-size: 3.125rem;
+}
+.headline h2{
+    font-size: 32px;
+}
+.headline h2:last-child{
+    font-family: Montserrat;
+    font-weight: 200;
+    line-height: 66px;
+    margin-left: 2px;
+}
+.headline span{
+    color: #FC3D56;
+}
+.headline strong{
+    font-weight: 400;
+}
+
+
+
+.body-link{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.body-link a{
+    align-items: center;
+    background-color: #FC3D56;
+    height: 40px;
+    width: 158px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    color: #ffffff;
+    font-family: "Michroma";
+    margin-top: 13px;
+    font-size: 18px;
+}
+.link a{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.link:last-child{
+    background-color: #294672;
+    margin-left: 45px;
+}
+.link:first-child:hover{
+    background-color: #294672;
+    letter-spacing: 5px;
+    transition: 0.3s;
+}
+.link:first-child:not(:hover){
+    transition: 0.3s;
+}
+.link:last-child:hover{
+    background-color: #FC3D56;
+    letter-spacing: 4px;
+    transition: 0.3s;
+}
+.link:last-child:not(:hover){
+    transition: 0.3s;
+}
+
+.about-me{
+    margin-top: 90px;
+}
+hr{
+    margin-top: 30px;
+    border: none;
+    height: 2px;
+    width: 100%;
+    background-color: #e9e8e8;
+    border-radius: 10px;
+}
+h3{
+    text-align: center;
+    margin-bottom: 25px;
+    color: #FC3D56;
+}
+
+
+.text__about-me p{
+    font-family: Montserrat;
+}
+.text__about-me span{
+    padding-left: 5%;
+}
+
+h4{
+    text-align: center;
+}
+
+.resume{
+    display: flex;
+    justify-content: space-between;
+}
+
+h5{
+    line-height: 50px;
+}
+.main-resume{
+    padding: 10px;
+}
+.languages{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.06);
+    width: 254px;
+}
+.english .level-line{
+    height: 3px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-left: 59px;
+    margin-top: -26px;
+}
+.english .circle{
+    background-color: #18315a;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-left: 150px;
+    margin-top: -10px;
+}
+.russian .level-line{
+    height: 3px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-left: 59px;
+    margin-top: -26px;
+}
+.russian .circle{
+    background-color: #18315a;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-left: 220px;
+    margin-top: -10px;
+}
+.ukranian .level-line{
+    height: 3px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-left: 59px;
+    margin-top: -26px;
+}
+.ukranian .circle{
+    background-color: #18315a;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-left: 215px;
+    margin-top: -10px;
+}
+.software{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.03);
+    width: 254px;
+}
+.software .eng-line .circle{
+    margin-left: 220px;
+}
+.software .ru-line .circle{
+    margin-left: 215px;
+}
+.software .ua-line .circle{
+    margin-left: 180px;
+}
+.social{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.03);
+    width: 254px;
+}
+
+.social .eng-line .circle{
+    margin-left: 160px;
+}
+.social .ru-line .circle{
+    margin-left: 220px;
+}
+.social .ua-line .circle{
+    margin-left: 70px;
+}
+
+.box-contact-me{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.phone-number {
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255, 0.04);
+    width: 254px;
+    height: 50px;
+}
+.phone-number img p a{
+    display: none;
+}
+.title-phone-number img{
+    margin-left: 15px;
+    margin-top: 16px;
+    width: 20px;
+    height: auto;
+}
+.box-contact-me p{
+    margin-left: 2px;
+    margin-top: -24px;
+    text-align: center;
+}
+
+svg {
+    width: 25px;
+    height: auto;
+}
+
+
+.main-email{
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255, 0.04);
+    width: 254px;
+    height: 50px;
+}
+
+.title-email{
+    margin-left: 15px;
+    margin-top: 13px;
+}
+.email-content p{
+    margin-top: -26px;
+    margin-left: 37px;
+}
+
+.media{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.media svg{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.media{
+    border-radius: 5px;
+    width: 254px;
+    height: 50px;
+    background-color: rgb(255, 255, 255, 0.04);
+}
+
+.copyright p{
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+}

@@ -472,34 +472,33 @@ h5{
 }
 
 .phone-number {
+    justify-content: center;
+    display: flex;
+    align-items: center;
     border-radius: 5px;
     background-color: rgb(255, 255, 255, 0.04);
     width: 254px;
     height: 50px;
 }
-.phone-number img p a{
-    display: none;
+.phone-number svg{
+    justify-content: flex-start;
 }
-.title-phone-number img{
-    margin-left: 15px;
-    margin-top: 16px;
-    width: 20px;
-    height: auto;
+.phone-number-content p{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
-.box-contact-me p{
-    margin-left: 2px;
-    margin-top: -24px;
-    text-align: center;
-}
-
 svg {
     width: 25px;
     height: auto;
 }
-
-.phone-number-content p{
-  color: #fff;
+.phone-icon svg{
+    margin-top: 3px;
+    margin-left: -58px;
 }
+
 .main-email{
     border-radius: 5px;
     background-color: rgb(255, 255, 255, 0.04);
@@ -513,7 +512,7 @@ svg {
 }
 .email-content p{
     margin-top: -26px;
-    margin-left: 37px;
+    margin-left: 47px;
 }
 
 .media{
@@ -537,4 +536,8 @@ svg {
     font-size: 13px;
     display: flex;
     justify-content: center;
+}
+
+img{
+    border-radius: 50%;
 }

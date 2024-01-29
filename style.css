@@ -483,7 +483,14 @@ h5{
 .phone-number svg{
     justify-content: flex-start;
 }
-.phone-number-content h6{
+.phone-number-content a{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.phone{
     font-size: 14px;
     display: flex;
     align-items: center;

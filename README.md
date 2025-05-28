@@ -1,6 +1,6 @@
 # My Portfolio
 
-Welcome to my personal portfolio! This repository showcases my skills, projects, and background in [Your Field/Industry, e.g., Web Development, Graphic Design, etc.].
+Welcome to my personal portfolio! This repository showcases my skills, projects, and background in Data science.
 
 ## Table of Contents
 
@@ -12,45 +12,36 @@ Welcome to my personal portfolio! This repository showcases my skills, projects,
 
 ## About Me
 
-Hello! I'm [Your Name], a passionate [Your Profession or Role, e.g., Web Developer, Designer] with a love for creating beautiful and functional web applications. I enjoy learning new technologies and continually improving my skills.
+Hello! I'm Myroslav, a passionate student Data scince with a love for creating beautiful and functional web applications. I enjoy learning new technologies and continually improving my skills.
 
 ## Projects
 
 Here are some of the projects I have worked on:
 
-1. **[Project Title 1](link-to-project)**
-   - **Description**: Brief description of what the project is about.
-   - **Technologies**: HTML, CSS, JavaScript, etc.
-   - **Live Demo**: [Live Link](link-to-live-demo)
-   - **Source Code**: [GitHub Link](link-to-source-code)
-
-2. **[Project Title 2](link-to-project)**
-   - **Description**: Brief description of what the project is about.
-   - **Technologies**: HTML, CSS, JavaScript, etc.
-   - **Live Demo**: [Live Link](link-to-live-demo)
-   - **Source Code**: [GitHub Link](link-to-source-code)
-
-*(Add more projects as needed)*
+1. **[Utlib](https://pypi.org/project/utlib/)**
+   - **Description**: A lightweight and beginner-friendly Python utility library with helpful functions for working with strings, numbers, lists, and more.
+   - **Technologies**: Python, PyPI, algorithms
+   - **Source Code**: [GitHub Repository](https://github.com/miroslavrpy/utlib)
 
 ## Skills
 
 - HTML
 - CSS
-- JavaScript
-- [Other Skills, e.g., React, Node.js, etc.]
+- Python
+- Data Scinece
 
 ## Technologies Used
 
 - Git
 - GitHub
-- [Any other relevant tools or technologies]
+- Python
+- flask
 
 ## Contact
 
 Feel free to reach out to me through the following channels:
 
-- **Email**: [your.email@example.com]
-- **LinkedIn**: [Your LinkedIn Profile](link-to-linkedin)
-- **Twitter**: [Your Twitter Profile](link-to-twitter)
+- **Email**: myroslavrepin@gmail.com
+- **Web site**: https://myroslavrepin.github.io/Portfolio/
 
 Thank you for visiting my portfolio! I look forward to connecting with you.

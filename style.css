@@ -1,65 +1,22 @@
-/* CSS Reset */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-}
-
-html, body {
-    height: 100%;
-    width: 100%;
-    line-height: 1;
-}
-
-body {
-    background: #fff;
-    color: #000;
-}
-
-ol, ul {
-    list-style: none;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-
 /* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sora:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ribeye&family=Sora:wght@100..800&display=swap');
+
+
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
 }
-
-
-
+/* ! _______CONTAINER________ */
 .container {
-    height: 100vh;
+    /* height: 100vh; */
     width: 1304px; /* лучше адаптивно */
     background-color: #fff;
 }
 
+/*  ! _______HEADER_______ */
 .project-btn a {
     color: #000;
     font-family: "Sora", sans-serif;
@@ -116,6 +73,9 @@ body {
     margin-left: 37px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 header {
   display: flex;
@@ -432,3 +392,30 @@ h1{
     font-weight: 700;
     line-height: normal;
 }
+
+
+
+
+
+
+
+
+@media (max-width: 700px) {
+  .project-cards {
+    display: flex;
+    flex-wrap: nowrap;       /* в одну линию */
+    overflow-x: auto;        /* горизонтальный скролл */
+    overflow-y: hidden;      /* отключаем вертикальный скролл */
+    -webkit-overflow-scrolling: touch; /* плавный скролл на iOS */
+    padding: 10px 0;         /* небольшой отступ сверху и снизу */
+    gap: 20px;
+    height: auto;            /* чтобы высота адаптировалась */
+  }
+
+  .project-card-1,
+  .project-card-2,
+  .project-card-3 {
+    flex: 0 0 341px;         /* фиксированная ширина */
+  }
+}
+

@@ -1,82 +1,28 @@
 /* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sora:wght@100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ribeye&family=Sora:wght@100..800&display=swap');
 
-
-body {
-    display: flex;
-    /* justify-content: center;
-    align-items: center; */
-}
-/* ! _______CONTAINER________ */
-.container {
-    /* height: 100vh; */
-    width: 1304px; /* лучше адаптивно */
-    background-color: #fff;
-}
-
-/*  ! _______HEADER_______ */
-.project-btn a {
-    color: #000;
-    font-family: "Sora", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 20px;
-    width: 136px;
-    height: 34px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    border: 1px solid #000;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 100px;   
-    background-color: transparent;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 22px;
-}
-.project-btn a:hover {
-    background-color: #000;
-    color: #fff;
-}
-.email-btn a {
-    color: #ffffff;
-    font-family: "Sora", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 20px;
-    width: 136px;
-    height: 34px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    border: 1px solid #000;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 100px;   
-    background-color: #000;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 22px;
-}
-.email-btn a:hover {
-    background-color: #ffffff;
-    color: #000000;
-}
-.left-links a{
-
-    font-size: 22px;
-    margin-left: 37px;
-}
-
-html {
+/* Base styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Sora', sans-serif;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
+body {
+  display: flex;
+}
+
+.container {
+  max-width: 1304px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  background-color: #fff;
+}
+
+/* Header */
 header {
   display: flex;
   align-items: center;
@@ -84,314 +30,283 @@ header {
   height: 63px;
   border-bottom: 0.5px solid #D6D6D6;
   background-color: #fff;
-  font-family: "Sora", sans-serif;
   font-size: 22px;
 }
 
 .project-btn,
-.left-links {
+.left-links,
+.right-links {
   display: flex;
   align-items: center;
 }
 
 .right-links {
   margin-left: auto;
-  display: flex;
-  align-items: center;
   gap: 20px;
 }
 
+.project-btn a,
+.email-btn a,
+.left-links a,
+.right-links a {
+  font-family: 'Sora', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 22px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 136px;
+  height: 34px;
+  border-radius: 100px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-/* ! --- INTRO --- */
-.intro-div{
-    display: flex;
-    justify-content: center;
-    margin-top: 200px;
+.project-btn a {
+  color: #000;
+  border: 1px solid #000;
+  background-color: transparent;
 }
-.intro{
-    width: 893px;
-    height: 316px;
-    /* display: flex; */
-    text-align: center;
-    
-}
-.h1-grey{
-    color: #BCBCBC;
-    font-family: "Raleway", sans-serif;
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-h1{
-    color: #000000;
-    font-family: "Raleway", sans-serif;
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-.top-projects-h4{
-    text-align: center;
-    margin-top: 146px;
-    color: #000;
 
-    text-align: center;
-    font-family: "Sora", sans-serif;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: normal;
+.project-btn a:hover {
+  background-color: #000;
+  color: #fff;
 }
+
+.email-btn a {
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #000;
+}
+
+.email-btn a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.left-links a {
+  margin-left: 37px;
+  color: #000;
+}
+
+/* Intro */
+.intro-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  text-align: center;
+}
+
+.intro {
+  width: 893px;
+  height: 316px;
+}
+
+.h1-grey,
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+}
+
+.h1-grey {
+  color: #BCBCBC;
+}
+
+h1 {
+  color: #000;
+}
+
+.top-projects-h4 {
+  margin-top: 146px;
+  color: #000;
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  font-weight: 200;
+  text-align: center;
+}
+
 .arrow-down {
   display: block;
   margin: 14px auto 0;
   width: 17px;
   height: auto;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .arrow-down:hover {
-  transform: translateY(5px); /* смещаем вниз на 5px */
-  cursor: pointer; /* чтобы курсор стал "рукой" */
+  transform: translateY(5px);
 }
 
-/* ! PROJECTS */
-.projects-section{
-    margin-top: 150px;
-    border-radius: 40px;
-    background: #FAFAFA;
-    display: flex;
-    width: 100%;
-    height: 717px;
-    flex-direction: column;
-    align-items: center;
-    gap: 56px;
-    
-}
-.highlight-span{
-    color: #000;
-    font-family: Ribeye;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.projects-section h2{
-    margin-top: 77px;
-    color: #000;
-    text-align: center;
-    font-family: "Raleway", sans-serif;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    flex-wrap: wrap;       /* разрешаем перенос на новую строку */
-    justify-content: center; /* выравниваем по центру */
-    gap: 40px;             /* равные отступы между карточками */
-    padding: 20px 0;
-}
-
-/* ! --- */
-.project-cards {
+/* Projects section */
+.projects-section {
+  margin-top: 150px;
+  border-radius: 40px;
+  background: #FAFAFA;
   display: flex;
-  flex-wrap: wrap;          /* разрешаем перенос строк */
-  justify-content: center;  /* центрируем карточки по горизонтали */
-  gap: 40px;                /* равные отступы между карточками */
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
   padding: 20px 0;
 }
-/* ! PROJECT CARD 1 */
-.project-card-1 {
+
+.projects-section h2 {
+  margin-top: 77px;
+  color: #000;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  padding: 20px 0;
+}
+
+.highlight-span {
+  color: #000;
+  font-family: 'Ribeye';
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.project-cards {
   display: flex;
-  flex-direction: column; /* сверху вниз */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px 0;
+}
+
+/* Project Cards */
+.project-card-1,
+.project-card-2,
+.project-card-3 {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* чтобы контент начинался сверху */
+  justify-content: flex-start;
   width: 341px;
   height: 475px;
   padding: 20px;
   box-sizing: border-box;
   border-radius: 25px;
-  border: 1px solid rgba(230, 167, 123, 0.27);
-  background: rgba(236, 229, 228, 0.56);
   gap: 20px;
 }
-.project-card-1-img {
-  width: 100%;               /* ширина под размер карточки */
-  height: 389px;             /* или по желанию */
-  background-image: url("assets/photo-1.png");
-  background-size: cover;    /* чтобы картинка покрывала весь блок */
-  background-position: center;
-  border-radius: 15px;       /* чуть скруглим картинку */
+
+.project-card-1 {
+  background: rgba(236, 229, 228, 0.56);
+  border: 1px solid rgba(230, 167, 123, 0.27);
 }
-.take-a-look-1 {
-    display: inline-flex;           /* гибкий контейнер по размеру контента */
-    align-items: center;            /* вертикальное центрирование */
-    justify-content: center;        /* горизонтальное центрирование */
-    padding: 10px 20px;             /* отступы внутри кнопки */
-    border: none;
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
-    font-family: "Sora", sans-serif;
-    font-size: 16px;
-    gap: 8px;                      /* расстояние между текстом и иконкой (если добавишь) */
-    transition: background-color 0.3s ease;
-    border-radius: 25px;
-    border: 0px solid #000;
-    background: rgba(230, 167, 123, 0.56);
-    width: 311px;
-    height: 49px;
-    flex-shrink: 0;
-}
-.take-a-look-1 img{
-    width: 122px;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-}
-.take-a-look-1:hover img {
-  transform: translateX(10px);
-  transition: transform 0.3s ease;
-}
-.take-a-look-1 p{
-    color: #000;
-    text-align: center;
-    font-family: "Play", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-/* ! PROJECT CARD 2 */
+
 .project-card-2 {
-    display: flex;
-    flex-direction: column; /* сверху вниз */
-    align-items: center;
-    justify-content: flex-start; /* чтобы контент начинался сверху */
-    width: 341px;
-    height: 475px;
-    padding: 20px;
-    box-sizing: border-box;
-
-    border-radius: 25px;
-    border: 1px solid rgba(170, 214, 220, 0.26);
-    background: rgba(170, 214, 220, 0.26);
+  background: rgba(170, 214, 220, 0.26);
+  border: 1px solid rgba(170, 214, 220, 0.26);
 }
+
+.project-card-3 {
+  background: rgba(197, 197, 197, 0.25);
+  border: 1px solid #D6D6D6;
+}
+
+.project-card-1-img,
+.project-card-2-img,
+.project-card-3-img {
+  width: 100%;
+  height: 389px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+}
+
+.project-card-1-img {
+  background-image: url("assets/photo-1.png");
+}
+
 .project-card-2-img {
-  width: 100%;               /* ширина под размер карточки */
-  height: 389px;             /* или по желанию */
   background-image: url("assets/photo-2.jpg");
-  background-size: cover;    /* чтобы картинка покрывала весь блок */
-  /* background-position: center; */
-  border-radius: 15px;       /* чуть скруглим картинку */
-  margin-bottom: 17px;
 }
+
+.project-card-3-img {
+  background-image: url("assets/photo-3.jpg");
+}
+
+.take-a-look-1,
+.take-a-look-2,
+.take-a-look-3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 311px;
+  height: 49px;
+  border-radius: 25px;
+  cursor: pointer;
+  gap: 8px;
+  font-family: "Play", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.take-a-look-1 {
+  background: rgba(230, 167, 123, 0.56);
+}
+
 .take-a-look-2 {
-    display: inline-flex;          
-    align-items: center;          
-    justify-content: center;    
-    padding: 10px 20px;           
-    border: none;
-    cursor: pointer;
-    font-family: "Sora", sans-serif;
-    font-size: 16px;
-    gap: 8px;                  
-    transition: background-color 0.3s ease;
-    
-    width: 311px;
-    height: 49px;
-    flex-shrink: 0;
-
-    border-radius: 25px;
-    border: 0px solid #DED0E1;
-    background: #82BADF;
+  background: #82BADF;
 }
 
-.take-a-look-2 img{
-    width: 122px;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
+.take-a-look-3 {
+  background: rgba(196, 196, 196, 0.83);
 }
-.take-a-look-2:hover img {
-  transform: translateX(10px);
+
+.take-a-look-1 p,
+.take-a-look-2 p,
+.take-a-look-3 p {
+  margin: 0;
+  color: #000;
+  text-align: center;
+}
+
+.take-a-look-1 img,
+.take-a-look-2 img,
+.take-a-look-3 img {
+  width: 122px;
+  height: auto;
+  display: block;
   transition: transform 0.3s ease;
 }
-.take-a-look-2 p{
-    color: #000;
-    text-align: center;
-    font-family: "Play", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-/* ! PROJECT CARD 3 */
-.project-card-3 {
-    display: flex;
-    flex-direction: column; /* сверху вниз */
-    align-items: center;
-    justify-content: flex-start; /* чтобы контент начинался сверху */
-    width: 341px;
-    height: 475px;
-    padding: 20px;
-    box-sizing: border-box;
 
-    border-radius: 25px;
-    border: 1px solid #D6D6D6;
-    background: rgba(197, 197, 197, 0.25);
-}
-.project-card-3-img {
-  width: 100%;               /* ширина под размер карточки */
-  height: 389px;             /* или по желанию */
-  background-image: url("assets/photo-3.jpg");
-  background-size: cover;    /* чтобы картинка покрывала весь блок */
-  /* background-position: center; */
-  border-radius: 15px;       /* чуть скруглим картинку */
-  margin-bottom: 17px;
-}
-.take-a-look-3 {
-    display: inline-flex;          
-    align-items: center;          
-    justify-content: center;    
-    padding: 10px 20px;           
-    border: none;
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
-    font-family: "Sora", sans-serif;
-    font-size: 16px;
-    gap: 8px;                  
-    transition: background-color 0.3s ease;
-    
-    width: 311px;
-    height: 49px;
-    flex-shrink: 0;
-
-    border-radius: 25px;
-    border: 0px solid #000;
-    background: rgba(196, 196, 196, 0.83);
-}
-.take-a-look-3 img{
-    width: 122px;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-}
+.take-a-look-1:hover img,
+.take-a-look-2:hover img,
 .take-a-look-3:hover img {
   transform: translateX(10px);
-  transition: transform 0.3s ease;
 }
-.take-a-look-3 p{
-    color: #000;
-    text-align: center;
-    font-family: "Play", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+
+/* Mobile styles */
+@media (max-width: 700px) {
+  .project-cards {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 0;
+    gap: 20px;
+  }
+
+  .project-card-1,
+  .project-card-2,
+  .project-card-3 {
+    flex: 0 0 341px;
+  }
+
+  .projects-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+  }
 }
+
 
 
 
@@ -411,6 +326,10 @@ h1{
     gap: 20px;
     height: auto;            /* чтобы высота адаптировалась */
   }
+  .projects-scroll-wrapper{
+    display: flex;
+    justify-content: start;
+  }
 
   .project-card-1,
   .project-card-2,
@@ -418,6 +337,10 @@ h1{
     flex: 0 0 341px;         /* фиксированная ширина */
   }
 }
+
+
+
+
 
 
 
@@ -467,7 +390,6 @@ h1{
       background: #000;
       color: #fff;
       border-radius: 100px;
-      padding: 5px 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -512,6 +434,8 @@ h1{
       overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
       padding-bottom: 10px;
+      display: flex;
+      justify-content: center;
     }
     /* Hide default scrollbar for Webkit */
     .projects-scroll-wrapper::-webkit-scrollbar { display: none; }

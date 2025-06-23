@@ -36,12 +36,13 @@ Here are some of the projects I have worked on:
 - GitHub
 - Python
 - flask
+- numpy
 
 ## Contact
 
 Feel free to reach out to me through the following channels:
 
 - **Email**: myroslavrepin@gmail.com
-- **Web site**: https://myroslavrepin.github.io/Portfolio/
+- **Web site**: https://myroslavrepin.com
 
 Thank you for visiting my portfolio! I look forward to connecting with you.

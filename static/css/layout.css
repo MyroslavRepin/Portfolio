@@ -1,0 +1,66 @@
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  height: 63px;
+  border-bottom: 0.5px solid #D6D6D6;
+  background-color: #fff;
+  font-size: 22px;
+}
+
+.project-btn,
+.left-links,
+.right-links {
+  display: flex;
+  align-items: center;
+}
+
+.right-links {
+  margin-left: auto;
+  gap: 20px;
+}
+
+.left-links a {
+  color: #000;
+}
+
+.projects-section {
+  margin-top: 150px;
+  border-radius: 40px;
+  background: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+  padding: 20px 0;
+}
+
+.projects-section h2 {
+  margin-top: 77px;
+  color: #000;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  padding: 20px 0;
+}
+
+.highlight-span {
+  color: #000;
+  font-family: 'Ribeye';
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.projects-scroll-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 10px;
+}
+
+.projects-scroll-wrapper::-webkit-scrollbar {
+  display: none; /* по желанию */
+}

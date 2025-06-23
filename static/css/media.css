@@ -34,8 +34,10 @@
     flex-direction: column;
     align-items: center;
   }
+
   .work-principle-1, 
-  .work-principle-2 {
+  .work-principle-2,
+  .work-principle-3 {
     margin-bottom: 50px;
   }
 }

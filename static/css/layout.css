@@ -86,6 +86,8 @@ header {
     display: flex;
     justify-content: center;
     margin-top: 93px;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 .work-principles-cards h5{
     color: #000;
@@ -105,10 +107,18 @@ header {
     font-weight: 300;
     line-height: normal;
     letter-spacing: 2.2px;
-    margin-left: 44px;
+    /* margin-left: 44px; */
     margin-top: 25px;
     text-align: left;
 }
+
+.work-principle-1,
+.work-principle-2,
+.work-principle-3 {
+  max-width: 320px;
+  width: 100%;
+}
+
 li {
     margin-bottom: 10px;
 }

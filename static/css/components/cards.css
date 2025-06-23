@@ -54,3 +54,9 @@
   object-fit: cover;
   display: block;
 }
+
+.work-principles-card {
+    width: 311px;
+    height: 277px;
+    margin-top: 93px;
+}

@@ -1,5 +1,9 @@
 # My Portfolio
 
+### Version
+
+**0.2.0**
+
 Welcome to my personal portfolio! This repository showcases my skills, projects, and background in Data science.
 
 ## Table of Contents

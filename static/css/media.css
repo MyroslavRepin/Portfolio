@@ -1,0 +1,43 @@
+/* media.css */
+
+/* Адаптив для экранов до 1100px */
+@media (max-width: 1100px) {
+  /* Проекты - горизонтальный скролл */
+  .project-cards {
+    flex-wrap: nowrap;          /* все карточки в одну строку */
+    overflow-x: auto;           /* включаем горизонтальный скролл */
+    overflow-y: hidden;         /* отключаем вертикальный скролл */
+    -webkit-overflow-scrolling: touch; /* плавный скролл для iOS */
+    padding: 10px 0;
+    gap: 20px;
+    width: max-content;         /* чтобы ширина подстраивалась */
+  }
+
+  /* Внешний контейнер скролла */
+  .projects-scroll-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  /* Фиксированная ширина для карточек, чтобы они не сжимались */
+  .project-card-1,
+  .project-card-2,
+  .project-card-3 {
+    flex: 0 0 341px;            /* ширина карточки */
+    height: auto;               /* высота под контент */
+  }
+}
+
+@media (max-width: 700px) {
+  .work-principles-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .work-principle-1, 
+  .work-principle-2,
+  .work-principle-3 {
+    margin-bottom: 50px;
+  }
+}

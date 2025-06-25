@@ -1,0 +1,83 @@
+.project-btn a,
+.email-btn a,
+.left-links a,
+.right-links a {
+  font-family: 'Sora', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 22px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 136px;
+  height: 34px;
+  border-radius: 100px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-btn a {
+  color: #000;
+  border: 1px solid #000;
+  background-color: transparent;
+}
+
+.project-btn a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.email-btn a {
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #000;
+}
+
+.email-btn a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.take-a-look-1,
+.take-a-look-2,
+.take-a-look-3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 311px;
+  height: 49px;
+  border-radius: 25px;
+  cursor: pointer;
+  gap: 8px;
+  font-family: "Play", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.take-a-look-1 { background: rgba(230, 167, 123, 0.56); }
+.take-a-look-2 { background: #82BADF; }
+.take-a-look-3 { background: rgba(196, 196, 196, 0.83); }
+
+.take-a-look-1 p,
+.take-a-look-2 p,
+.take-a-look-3 p {
+  margin: 0;
+  color: #000;
+  text-align: center;
+}
+
+.take-a-look-1 img,
+.take-a-look-2 img,
+.take-a-look-3 img {
+  width: 122px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.take-a-look-1:hover img,
+.take-a-look-2:hover img,
+.take-a-look-3:hover img {
+  transform: translateX(10px);
+}

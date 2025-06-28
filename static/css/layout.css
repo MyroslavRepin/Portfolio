@@ -180,3 +180,13 @@ li {
     line-height: normal;
     letter-spacing: 2px;
 }
+
+.contact-section {
+  width: 100%;
+  height: 717px;
+  background-color: #000000;
+  color: #ffffff;
+}
+.contact-section h1{
+  color: #ffffff;
+}

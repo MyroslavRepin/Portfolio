@@ -10,6 +10,7 @@ html, body {
 
 body {
   display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -18,4 +19,10 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   background-color: #fff;
+}
+.container-contact {
+  max-width: 1304px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
 }

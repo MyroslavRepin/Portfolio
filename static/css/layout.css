@@ -87,6 +87,7 @@ header {
 .about-section {
     /* height: 717px; */
     background-color: #ffffff;
+    padding: 40px 20px;
 }
 
 .skills-section {

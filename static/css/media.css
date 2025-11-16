@@ -1,34 +1,108 @@
 /* media.css */
 
-/* Адаптив для экранов до 1100px */
+/* Tablet and smaller screens */
 @media (max-width: 1100px) {
   /* Проекты - горизонтальный скролл */
   .project-cards {
-    flex-wrap: nowrap;          /* все карточки в одну строку */
-    overflow-x: auto;           /* включаем горизонтальный скролл */
-    overflow-y: hidden;         /* отключаем вертикальный скролл */
-    -webkit-overflow-scrolling: touch; /* плавный скролл для iOS */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     padding: 10px 0;
     gap: 20px;
-    width: max-content;         /* чтобы ширина подстраивалась */
+    width: max-content;
   }
 
-  /* Внешний контейнер скролла */
   .projects-scroll-wrapper {
     display: flex;
     justify-content: flex-start;
     width: 100%;
   }
 
-  /* Фиксированная ширина для карточек, чтобы они не сжимались */
   .project-card-1,
   .project-card-2,
   .project-card-3 {
-    flex: 0 0 341px;            /* ширина карточки */
-    height: auto;               /* высота под контент */
+    flex: 0 0 341px;
+    height: auto;
   }
 }
 
+/* Tablet adjustments */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  .header-wrapper {
+    flex-wrap: wrap;
+    padding: 0 10px;
+    height: auto;
+    min-height: 63px;
+  }
+
+  .project-btn {
+    order: 1;
+  }
+
+  .left-links {
+    order: 2;
+    gap: 10px;
+  }
+
+  .right-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  header {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  /* Typography adjustments */
+  .h1-grey,
+  h1 {
+    font-size: 48px;
+  }
+
+  .about-section h2,
+  .projects-section h2,
+  .skills-section h2 {
+    font-size: 32px;
+    padding: 10px 20px;
+  }
+
+  .highlight-span {
+    font-size: 32px;
+  }
+
+  /* Intro section */
+  .intro-section {
+    margin-top: 150px;
+  }
+
+  .intro {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    padding: 0 20px;
+  }
+
+  /* Projects section */
+  .projects-section {
+    margin-top: 100px;
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .project-card-1,
+  .project-card-2,
+  .project-card-3 {
+    flex: 0 0 300px;
+  }
+}
+
+/* Mobile devices */
 @media (max-width: 700px) {
   .work-principles-cards {
     flex-direction: column;
@@ -39,5 +113,175 @@
   .work-principle-2,
   .work-principle-3 {
     margin-bottom: 50px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  /* Header - Mobile Navigation */
+  .header-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 15px;
+  }
+
+  .project-btn,
+  .left-links,
+  .right-links {
+    width: 100%;
+    justify-content: flex-start;
+    margin: 0;
+  }
+
+  .left-links {
+    gap: 15px;
+  }
+
+  .right-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+
+  .project-btn a,
+  .email-btn a,
+  .left-links a,
+  .right-links a {
+    font-size: 16px;
+    width: auto;
+    min-width: 100px;
+    padding: 8px 16px;
+    height: 32px;
+  }
+
+  header {
+    height: auto;
+    min-height: 50px;
+  }
+
+  /* Typography - Mobile */
+  .h1-grey,
+  h1 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .about-section h2,
+  .projects-section h2,
+  .skills-section h2 {
+    font-size: 24px;
+    padding: 10px 15px;
+    line-height: 1.4;
+  }
+
+  .highlight-span {
+    font-size: 24px;
+  }
+
+  .highlight-span-1 {
+    font-size: 18px;
+  }
+
+  /* Intro section - Mobile */
+  .intro-section {
+    margin-top: 120px;
+    padding: 0 10px;
+  }
+
+  .intro {
+    width: 100%;
+    height: auto;
+    padding: 0 10px;
+  }
+
+  .top-projects-h4 {
+    margin-top: 80px;
+    font-size: 18px;
+  }
+
+  /* About section - Mobile */
+  .about-section {
+    padding: 40px 15px;
+  }
+
+  .about-me-text {
+    margin-top: 40px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+
+  /* Work principles - Mobile */
+  .work-principles-cards {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    gap: 30px;
+    padding: 0 10px;
+  }
+
+  .work-principles-cards h5 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .work-principles-cards ul {
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    margin-top: 15px;
+  }
+
+  .work-principle-1,
+  .work-principle-2,
+  .work-principle-3 {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  /* Projects section - Mobile */
+  .projects-section {
+    margin-top: 60px;
+    height: auto;
+    min-height: 600px;
+    gap: 30px;
+    padding: 30px 0;
+  }
+
+  .project-card-1,
+  .project-card-2,
+  .project-card-3 {
+    flex: 0 0 280px;
+    width: 280px;
+    height: auto;
+    min-height: 420px;
+    padding: 15px;
+  }
+
+  .project-card-1-img,
+  .project-card-2-img,
+  .project-card-3-img {
+    height: 320px;
+  }
+
+  .take-a-look-1,
+  .take-a-look-2,
+  .take-a-look-3 {
+    width: 100%;
+    max-width: 280px;
+    height: 44px;
+    font-size: 14px;
+  }
+
+  /* Skills section - Mobile */
+  .skills-section {
+    min-height: auto;
+    padding: 40px 15px;
+  }
+
+  /* Container padding */
+  .container {
+    padding: 0 15px;
   }
 }

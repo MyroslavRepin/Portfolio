@@ -41,6 +41,97 @@ header {
   color: #000;
 }
 
+/* Burger Menu Button */
+.burger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1100;
+}
+
+.burger-line {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burger-btn.open .burger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger-btn.open .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-btn.open .burger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1050;
+  flex-direction: column;
+  padding: 80px 30px 30px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-menu a {
+  font-family: 'Sora', sans-serif;
+  font-size: 20px;
+  color: #000;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  color: #666;
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
 .projects-section {
   margin-top: 150px;
   border-radius: 40px;
@@ -50,7 +141,7 @@ header {
   align-items: center;
   gap: 56px;
   padding: 20px 0;
-  height: 886px;
+  min-height: 100vh;
 }
 
 .about-section, 
@@ -81,22 +172,25 @@ header {
 }
 
 .projects-scroll-wrapper::-webkit-scrollbar {
-  display: none; /* по желанию */
+  display: none;
 }
 
 .about-section {
-    /* height: 717px; */
     background-color: #ffffff;
+    min-height: 100vh;
+    padding-top: 80px;
 }
 
 .skills-section {
-  min-height: 717px;
-  height: auto; /* позволяет блоку расти при переполнении */
+  min-height: 100vh;
   padding: 80px 20px;
+  padding-bottom: 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* по желанию, если хочешь вертикально выровнять */
+  justify-content: flex-start;
+  background-color: #F5F5F5;
+  border-radius: 25px;
 }
 
 .about-me-text {
@@ -136,7 +230,6 @@ header {
     font-weight: 300;
     line-height: normal;
     letter-spacing: 2.2px;
-    /* margin-left: 44px; */
     margin-top: 25px;
     text-align: left;
 }
@@ -150,16 +243,6 @@ header {
 
 li {
     margin-bottom: 10px;
-}
-.skills-section {
-  min-height: 717px;
-  padding: 80px 20px;
-  padding-bottom: 0;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: flex-start;
-  background-color: #F5F5F5;
-  border-radius: 25px;
 }
 
 .skills-section h2{
@@ -179,4 +262,46 @@ li {
     font-weight: 400;
     line-height: normal;
     letter-spacing: 2px;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #000000;
+  color: #FFFFFF;
+  width: 100%;
+  padding: 40px 20px;
+  margin-top: 80px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-links a {
+  color: #FFFFFF;
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+.footer-copyright {
+  color: #FFFFFF;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  opacity: 0.8;
 }

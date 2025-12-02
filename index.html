@@ -12,9 +12,9 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio</title>
+  <title>Portfolio - Myroslav Repin</title>
+  <meta name="description" content="Portfolio of Myroslav Repin - Frontend, Backend and Data Science developer" />
   <link rel="stylesheet" href="static/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Ribeye&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -24,82 +24,99 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <div class="header-wrapper">
+    <header role="banner">
+      <nav class="header-wrapper" aria-label="Main navigation">
         <div class="project-btn">
           <a href="#project-cards">Projects</a>
         </div>
-        <div class="left-links">
+        <div class="left-links desktop-nav">
           <a href="#about-section" class="link-about">About</a>
           <a href="#skills-section" class="link-about">Skills</a>
         </div>
-        <div class="right-links">
-          <a href="Myroslav_Repin_Resume.pdf" class="rights-links" download="">Get resume</a>
-          <a href="https://github.com/MyroslavRepin" class="rights-links">GitHub</a>
+        <div class="right-links desktop-nav">
+          <a href="Myroslav_Repin_Resume.pdf" class="rights-links" download>Get resume</a>
+          <a href="https://github.com/MyroslavRepin" class="rights-links" aria-label="GitHub Profile">GitHub</a>
           <div class="email-btn">
-            <a href="">Email me</a>
+            <a href="mailto:contact@myroslavrepin.com" aria-label="Send email">Email me</a>
           </div>
         </div>
-      </div>
+        <!-- Burger Menu Button for Mobile -->
+        <button class="burger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+      </nav>
     </header>
-    <main>
-      <section class="intro-section">
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" aria-hidden="true"></div>
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+      <a href="#project-cards">Projects</a>
+      <a href="#about-section">About</a>
+      <a href="#skills-section">Skills</a>
+      <a href="Myroslav_Repin_Resume.pdf" download>Get resume</a>
+      <a href="https://github.com/MyroslavRepin" aria-label="GitHub Profile">GitHub</a>
+      <a href="mailto:contact@myroslavrepin.com" aria-label="Send email">Email me</a>
+    </nav>
+    <main role="main">
+      <section class="intro-section full-screen fade-in" id="hero-section">
         <div class="intro">
           <h1 class="h1-grey">Hey, I'm Myroslav</h1>
           <h1>Frontend, Backend and Data Science developer</h1>
           <a href="#project-cards">
             <h4 class="top-projects-h4">Top projects</h4>
           </a>
-          <a href="#project-cards">
-            <img src="/assets/arrow-down.png" alt="arrow-down" class="arrow-down" />
+          <a href="#project-cards" aria-label="Scroll to projects">
+            <img src="assets/arrow-down.png" alt="Scroll down arrow" class="arrow-down" />
           </a>
         </div>
       </section>
-      <section class="projects-section">
+      <section class="projects-section full-screen fade-in" id="projects-section">
         <h2>
           Designing my own digital <br />
           story — one <span class="highlight-span">pixel</span> at a time
         </h2>
 
-        <!-- Добавляем обёртку для горизонтального скролла -->
+        <!-- Projects scroll wrapper for horizontal scroll -->
         <div class="projects-scroll-wrapper">
           <div class="project-cards" id="project-cards">
-            <div class="project-card-1">
+            <article class="project-card-1">
               <div class="project-card-1-img">
-                <img src="assets/photo-1.png" alt="">
+                <img src="assets/photo-1.png" alt="Project 1 screenshot" />
               </div>
-              <button class="take-a-look-1">
+              <button class="take-a-look-1" aria-label="View project 1 details">
                 <p>Take a look</p>
-                <img src="/assets/arrow-right.png" alt="" />
+                <img src="assets/arrow-right.png" alt="" aria-hidden="true" />
               </button>
-            </div>
-            <div class="project-card-2">
+            </article>
+            <article class="project-card-2">
               <div class="project-card-2-img">
-                <img src="assets/photo-2.jpg" alt="">
+                <img src="assets/photo-2.jpg" alt="Project 2 screenshot" />
               </div>
-              <button class="take-a-look-2">
+              <button class="take-a-look-2" aria-label="View project 2 details">
                 <p>Take a look</p>
-                <img src="/assets/arrow-right.png" alt="" />
+                <img src="assets/arrow-right.png" alt="" aria-hidden="true" />
               </button>
-            </div>
-            <div class="project-card-3">
+            </article>
+            <article class="project-card-3">
               <div class="project-card-3-img">
-                <img src="assets/photo-3.jpg" alt="">
+                <img src="assets/photo-3.jpg" alt="Project 3 screenshot" />
               </div>
-              <button class="take-a-look-3">
+              <button class="take-a-look-3" aria-label="View project 3 details">
                 <p>Take a look</p>
-                <img src="/assets/arrow-right.png" alt="" />
+                <img src="assets/arrow-right.png" alt="" aria-hidden="true" />
               </button>
-            </div>
+            </article>
           </div>
         </div>
       </section>
-      <section class="about-section" id="about-section">
+      <section class="about-section full-screen fade-in" id="about-section">
         <h2>Who I am <span class="highlight-span">beyond</span> the keyboard?</h2>
-        <p class="about-me-text">I am  a Python developer and junior data science specialist. Author of the utlib library with experience in hardware and sensor integration. Currently deepening expertise in data science and artificial intelligence, committed to writing clean and efficient code.</p>
+        <p class="about-me-text">I am a Python developer and junior data science specialist. Author of the utlib library with experience in hardware and sensor integration. Currently deepening expertise in data science and artificial intelligence, committed to writing clean and efficient code.</p>
         <div class="info-wrapper">
           <div class="work-principles-cards">
-            <div class="work-principle-1">
+            <article class="work-principle-1">
               <h5>1. Work principles</h5>
               <ul>
                 <li>Thoroughly documenting my code</li>
@@ -107,8 +124,8 @@
                 <li>Ensuring readability and maintainability</li>
                 <li>Clear deadlines</li>
               </ul>
-            </div>
-            <div class="work-principle-2">
+            </article>
+            <article class="work-principle-2">
               <h5>2. Learning focus</h5>
               <ul>
                 <li>Python visualization</li>
@@ -119,8 +136,8 @@
                 <li>Hardware development</li>
                 <li>PCB designing</li>
               </ul>
-            </div>
-            <div class="work-principle-3">
+            </article>
+            <article class="work-principle-3">
               <h5>3. Personal</h5>
               <ul>
                 <li>Purposeful learning</li>
@@ -128,42 +145,55 @@
                 <li>Building with integrity and clarity</li>
                 <li>Discipline over motivation</li>
               </ul>
-            </div>
+            </article>
           </div>
         </div>
       </section>
-      <section class="skills-section" id="skills-section">
-        <h2>Tools <span class="highlight-span">behing</span> the story</h2>
+      <section class="skills-section full-screen fade-in" id="skills-section">
+        <h2>Tools <span class="highlight-span">behind</span> the story</h2>
         <div class="info-wrapper">
           <div class="work-principles-cards">
-            <div class="work-principle-1">
+            <article class="work-principle-1">
               <h5>1. Languages</h5>
               <ul>
                 <li><span class="highlight-span-1">Python</span> — primary language for backend development, data science, and library creation (junior)</li>
                 <li><span class="highlight-span-1">HTML</span> — building structured and accessible web pages (intermediate)</li>
                 <li><span class="highlight-span-1">CSS</span> — styling and responsive design for user interfaces (intermediate)</li>
               </ul>
-            </div>
-            <div class="work-principle-2">
+            </article>
+            <article class="work-principle-2">
               <h5>2. Frameworks & Libraries</h5>
               <ul>
                 <li><span class="highlight-span-1">Flask</span> — lightweight framework for building web applications and APIs (intermediate)</li>
-                <li><span class="highlight-span-1">Django</span> — high-level web framework for scalable backend systems (junior)</li>
+                <li><span class="highlight-span-1">FastAPI</span> — high-performance web framework for building APIs (junior)</li>
                 <li><span class="highlight-span-1">NumPy</span> — numerical computing and array operations in data pipelines (junior)</li>
                 <li><span class="highlight-span-1">Matplotlib</span> — data visualization and plotting for analytical tasks (junior)</li>
+                <li><span class="highlight-span-1">Async</span> — asynchronous programming for efficient concurrent code execution (junior)</li>
               </ul>
-            </div>
-            <div class="work-principle-3">
+            </article>
+            <article class="work-principle-3">
               <h5>3. Tools & Platforms</h5>
               <ul>
                 <li><span class="highlight-span-1">Git</span> — version control for collaborative and individual development</li>
                 <li><span class="highlight-span-1">GitHub</span> — hosting and managing code repositories, issues, and documentation</li>
+                <li><span class="highlight-span-1">Docker</span> — containerization and deployment</li>
+                <li><span class="highlight-span-1">PostgreSQL</span> — relational database</li>
               </ul>
-            </div>
+            </article>
           </div>
         </div>
       </section>
     </main>
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="mailto:contact@myroslavrepin.com" aria-label="Email Myroslav">Email</a>
+          <a href="https://github.com/MyroslavRepin" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">GitHub</a>
+        </div>
+        <p class="footer-copyright">&copy; 2024 Myroslav Repin. All rights reserved.</p>
+      </div>
+    </footer>
   </div>
+  <script src="static/js/script.js"></script>
 </body>
 </html>

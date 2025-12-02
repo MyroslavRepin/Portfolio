@@ -1,13 +1,16 @@
 .intro-section {
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  align-items: center;
+  min-height: 100vh;
   text-align: center;
+  padding-top: 63px;
 }
 
 .intro {
   width: 893px;
-  height: 316px;
+  max-width: 100%;
+  padding: 0 20px;
 }
 
 .h1-grey,

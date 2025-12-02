@@ -16,7 +16,7 @@ Welcome to my personal portfolio! This repository showcases my skills, projects,
 
 ## About Me
 
-Hello! I'm Myroslav, a passionate student Data scince with a love for creating beautiful and functional web applications. I enjoy learning new technologies and continually improving my skills.
+Hello! I'm Myroslav, a passionate student Data Science with a love for creating beautiful and functional web applications. I enjoy learning new technologies and continually improving my skills.
 
 ## Projects
 
@@ -32,7 +32,7 @@ Here are some of the projects I have worked on:
 - HTML
 - CSS
 - Python
-- Data Scinece
+- Data Science
 
 ## Technologies Used
 

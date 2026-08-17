@@ -1,899 +1,96 @@
-<!DOCTYPE html>
-<html lang="en" class="font-syne">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" coπtent="width=device-width, initial-scale=1.0"/>
-  <title>Myroslav Repin — Developer & Builder</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Myroslav Repin</title>
+<meta name="description" content="Backend developer in Clairmont, Alberta.">
+<style>
+:root { --fg: #141414; --bg: #fdfdfc; --dim: #6b6b6b; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg: #d8d8d4; --bg: #131313; --dim: #858580; }
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Bebas+Neue&family=Bricolage+Grotesque:opsz,wght@12..60,400;12..60,700;12..60,800&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  max-width: 64ch;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 5rem;
+  overflow-wrap: break-word;
+}
 
-  <style>
-    /* ─── TOKENS ─── */
-    :root {
-      --blue: #2B4FFF;
-      --bg:   #F7F6F1;
-      --ink:  #0C0C0C;
-      --mid:  #555;
-      --dim:  rgba(0,0,0,0.12);
-    }
+p { margin: 0 0 1.35rem; }
 
-    /* ─── FONT SYSTEM ─── */
-    html.font-syne      .hl { font-family: 'Syne', sans-serif; font-weight: 800; }
-    html.font-bebas     .hl { font-family: 'Bebas Neue', cursive; font-weight: 400; letter-spacing: 0.01em; }
-    html.font-bricolage .hl { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 
-    /* ─── RESET ─── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'JetBrains Mono', monospace;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
+h1 { font: inherit; font-weight: 700; margin: 0 0 1.35rem; }
 
-    /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 22px 52px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: rgba(247,246,241,0.85);
-      backdrop-filter: blur(14px);
-    }
-    .nav-logo {
-      font-size: 15px; font-weight: 500;
-      color: var(--ink); text-decoration: none;
-      letter-spacing: 0.01em;
-      display: flex; align-items: center; gap: 1px;
-    }
-    .nav-logo strong { font-family: 'Syne', sans-serif; font-weight: 800; }
-    .cursor-blink { color: var(--blue); animation: blink 1s step-end infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-    nav ul { list-style:none; display:flex; gap:36px; }
-    nav ul a {
-      font-size: 11px; color: var(--mid);
-      text-decoration: none; letter-spacing: 0.06em;
-      transition: color 0.15s;
-    }
-    nav ul a:hover { color: var(--blue); }
+h2 {
+  font: inherit;
+  color: var(--dim);
+  margin: 2.75rem 0 1.35rem;
+}
 
-    /* ─── HERO ─── */
-    #hero {
-      min-height: 100vh;
-      padding: 0 52px;
-      display: flex; flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
+.what { font-weight: 700; }
+.note { color: var(--dim); }
 
-    /* top meta strip */
-    .hero-meta {
-      position: absolute; top: 88px; left: 52px; right: 52px;
-      display: flex; align-items: center; gap: 32px;
-      font-size: 11px; color: var(--mid); letter-spacing: 0.06em;
-      z-index: 3;
-    }
-    .hero-meta-dot {
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--blue); flex-shrink: 0;
-      animation: blink 1.6s ease-in-out infinite;
-    }
-
-    /* main headline */
-    .hero-hl {
-      position: relative; z-index: 2;
-    }
-    .hero-hl h1 {
-      font-size: clamp(52px, 11.5vw, 168px);
-      line-height: 0.87;
-      letter-spacing: -0.045em;
-      color: var(--ink);
-      white-space: nowrap;
-    }
-    .hero-hl h1.l2 {
-      margin-left: clamp(20px, 10vw, 160px);
-      color: var(--blue);
-    }
-    /* hand-drawn SVG underline */
-    .hero-hl svg.underline {
-      display: block;
-      margin-left: clamp(20px, 10vw, 160px);
-      margin-top: -4px;
-    }
-
-    /* handwritten sub */
-    .hero-handwrite {
-      margin-top: 32px;
-      font-family: 'Caveat', cursive;
-      font-weight: 700;
-      font-size: clamp(16px, 2.5vw, 28px);
-      color: var(--blue);
-      letter-spacing: 0.01em;
-    }
-
-    /* outline "15" watermark */
-    .hero-15 {
-      position: absolute;
-      right: -0.02em; top: 50%;
-      transform: translateY(-52%);
-      font-size: clamp(220px, 28vw, 420px);
-      font-weight: 800;
-      color: transparent;
-      -webkit-text-stroke: 1.5px rgba(43,79,255,0.10);
-      letter-spacing: -0.06em;
-      line-height: 1;
-      pointer-events: none;
-      z-index: 1;
-      user-select: none;
-    }
-
-    /* bottom project strip */
-    .hero-strip {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      display: flex;
-      border-top: 1px solid var(--dim);
-    }
-    .strip-item {
-      flex: 1;
-      padding: 22px 52px 22px 52px;
-      display: flex; align-items: center; gap: 14px;
-      text-decoration: none; color: var(--ink);
-      border-right: 1px solid var(--dim);
-      transition: background 0.18s, color 0.18s;
-    }
-    .strip-item:last-child { border-right: none; }
-    .strip-item:hover { background: rgba(43,79,255,0.04); color: var(--blue); }
-    .strip-item:first-child { padding-left: 52px; }
-    .s-num { font-size: 10px; color: var(--blue); letter-spacing: 0.06em; opacity: 0.7; }
-    .s-name { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
-    .s-tag { font-size: 10px; color: var(--mid); margin-left: auto; }
-    .s-arrow { font-size: 16px; color: var(--mid); transition: transform 0.15s, color 0.15s; }
-    .strip-item:hover .s-arrow { transform: translate(3px,-3px); color: var(--blue); }
-
-    /* ─── PROJECTS ─── */
-    #projects {
-      padding: 120px 0 120px 80px;
-      position: relative;
-    }
-    .rotated-label {
-      position: absolute;
-      left: 18px; top: 50%;
-      transform: translateY(-50%) rotate(180deg);
-      writing-mode: vertical-rl;
-      font-size: 9px; color: rgba(0,0,0,0.18);
-      letter-spacing: 0.14em; text-transform: uppercase;
-      white-space: nowrap; user-select: none;
-    }
-
-    .proj-row {
-      display: grid;
-      grid-template-columns: 120px 1fr auto auto;
-      align-items: center;
-      gap: 24px 40px;
-      padding: 32px 52px 32px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.07);
-      border-left: 3px solid transparent;
-      padding-left: 24px;
-      transition: background 0.2s, border-left-color 0.2s;
-      cursor: default;
-    }
-    .proj-row:first-of-type { border-top: 1px solid rgba(0,0,0,0.07); }
-    .proj-row:hover {
-      background: rgba(43,79,255,0.025);
-      border-left-color: var(--blue);
-    }
-
-    .proj-num {
-      font-size: clamp(52px, 5.5vw, 80px);
-      font-weight: 800;
-      color: transparent;
-      -webkit-text-stroke: 1.5px rgba(0,0,0,0.1);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      transition: -webkit-text-stroke-color 0.2s;
-    }
-    .proj-row:hover .proj-num { -webkit-text-stroke-color: var(--blue); }
-
-    .proj-info h3 {
-      font-size: clamp(28px, 3vw, 48px);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      color: var(--ink);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .proj-info p {
-      font-size: 12px; color: var(--mid);
-      letter-spacing: 0.02em; line-height: 1.7;
-    }
-
-    .proj-tags-col {
-      display: flex; flex-direction: column; gap: 4px; align-items: flex-end;
-    }
-    .proj-tags-col span {
-      font-size: 10px; color: var(--mid);
-      border: 1px solid rgba(0,0,0,0.1);
-      padding: 2px 9px; white-space: nowrap;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .proj-row:hover .proj-tags-col span { border-color: rgba(43,79,255,0.35); color: var(--blue); }
-
-    .proj-arrow {
-      font-size: 22px; color: var(--mid);
-      text-decoration: none; line-height: 1;
-      transition: transform 0.15s, color 0.15s;
-    }
-    .proj-row:hover .proj-arrow { transform: translate(4px,-4px); color: var(--blue); }
-
-    /* ─── STACK (marquee) ─── */
-    #stack {
-      background: var(--ink);
-      padding: 80px 0;
-      overflow: hidden;
-    }
-    .stack-head {
-      padding: 0 52px 40px;
-      display: flex; align-items: baseline; gap: 20px;
-    }
-    .stack-head h2 {
-      font-size: clamp(36px, 4vw, 58px);
-      font-weight: 800;
-      color: #F7F6F1;
-      letter-spacing: -0.04em;
-      line-height: 1;
-    }
-    .stack-head h2 .accent {
-      font-family: 'Caveat', cursive;
-      color: var(--blue); font-size: 1.05em; font-weight: 700;
-    }
-    .stack-head .slabel {
-      font-size: 9px; color: rgba(247,246,241,0.25);
-      letter-spacing: 0.12em; text-transform: uppercase;
-    }
-
-    .marquee-row {
-      overflow: hidden;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 14px 0;
-    }
-    .marquee-track {
-      display: flex; white-space: nowrap; width: max-content;
-    }
-    .mfwd { animation: mfwd 22s linear infinite; }
-    .mbwd { animation: mbwd 28s linear infinite; }
-    @keyframes mfwd { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    @keyframes mbwd { from{transform:translateX(-50%)} to{transform:translateX(0)} }
-    .marquee-track:hover .mfwd,
-    .marquee-track:hover .mbwd { animation-play-state: paused; }
-
-    .mi {
-      font-size: clamp(22px, 2.8vw, 40px);
-      font-weight: 700;
-      color: rgba(247,246,241,0.1);
-      letter-spacing: -0.025em;
-      padding: 0 20px;
-      transition: color 0.18s;
-      cursor: default;
-    }
-    .mi:hover { color: var(--blue) !important; }
-    .msep {
-      font-size: 12px; color: rgba(247,246,241,0.06);
-      padding: 0 4px; align-self: center;
-    }
-
-    /* ─── CONTACT ─── */
-    #contact {
-      padding: 140px 52px 120px;
-      position: relative; overflow: hidden;
-    }
-    .contact-hl {
-      font-size: clamp(60px, 10vw, 148px);
-      font-weight: 800;
-      letter-spacing: -0.05em;
-      line-height: 0.86;
-      color: var(--ink);
-      margin-bottom: 64px;
-      position: relative; z-index: 2;
-    }
-    .contact-hl .accent {
-      font-family: 'Caveat', cursive;
-      color: var(--blue); font-size: 0.92em;
-      display: block;
-    }
-
-    /* doodle arrow deco, big BG text */
-    .contact-bg-text {
-      position: absolute;
-      right: -0.02em; bottom: 60px;
-      font-size: clamp(80px, 14vw, 200px);
-      font-weight: 800;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(0,0,0,0.06);
-      pointer-events: none; user-select: none; z-index: 1;
-      letter-spacing: -0.05em;
-    }
-
-    .contact-links {
-      display: flex; gap: 64px; flex-wrap: wrap; position: relative; z-index: 2;
-    }
-    .cl-item { display: flex; flex-direction: column; gap: 6px; }
-    .cl-label { font-size: 9px; color: rgba(0,0,0,0.28); letter-spacing: 0.12em; text-transform: uppercase; }
-    .cl-item a {
-      font-size: clamp(18px, 1.8vw, 26px);
-      font-weight: 700;
-      color: var(--ink); text-decoration: none;
-      letter-spacing: -0.02em;
-      position: relative; display: inline-block;
-    }
-    .cl-item a::after {
-      content: '';
-      position: absolute; bottom: -2px; left: 0; right: 0;
-      height: 2px; background: var(--blue);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.22s;
-    }
-    .cl-item a:hover { color: var(--blue); }
-    .cl-item a:hover::after { transform: scaleX(1); }
-
-    /* doodle arrow svg */
-    .doodle-arrow {
-      position: absolute; right: 260px; top: 164px;
-      opacity: 0.18; pointer-events: none;
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      padding: 26px 52px;
-      border-top: 1px solid rgba(0,0,0,0.07);
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    footer .f-copy { font-size: 10px; color: rgba(0,0,0,0.22); letter-spacing: 0.04em; }
-    footer .f-script { font-family: 'Caveat', cursive; font-size: 16px; color: rgba(0,0,0,0.2); }
-
-    /* ─── TWEAKS ─── */
-    #tweaks-panel {
-      display: none; position: fixed; bottom: 24px; right: 24px;
-      background: #fff; border: 1.5px solid var(--ink);
-      padding: 20px 22px; width: 240px; z-index: 999;
-      box-shadow: 5px 5px 0 var(--blue);
-    }
-    #tweaks-panel.on { display: block; }
-    .tp-title {
-      font-size: 13px; font-weight: 700; margin-bottom: 18px;
-      letter-spacing: -0.01em;
-    }
-    .tp-group { margin-bottom: 14px; }
-    .tp-label {
-      font-size: 9px; color: rgba(0,0,0,0.38); letter-spacing: 0.1em;
-      text-transform: uppercase; display: block; margin-bottom: 6px;
-    }
-    .tp-opts { display: flex; gap: 5px; flex-wrap: wrap; }
-    .tp-btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px; padding: 4px 9px;
-      border: 1px solid rgba(0,0,0,0.14); background: none;
-      cursor: pointer; color: var(--mid);
-      transition: background 0.12s, color 0.12s, border-color 0.12s;
-    }
-    .tp-btn:hover, .tp-btn.on { background: var(--blue); color:#fff; border-color:var(--blue); }
-
-    /* ─── BURGER + MOBILE MENU ─── */
-    .burger {
-      display: none;
-      background: none; border: none;
-      color: var(--ink); cursor: pointer;
-      padding: 4px;
-      transition: color 0.15s;
-    }
-    .burger:hover { color: var(--blue); }
-
-    /* nav stays on top of mobile menu */
-    nav { z-index: 100; }
-
-    /* ─── RESPONSIVE: TABLET ─── */
-    @media (max-width: 860px) {
-      .burger { display: block; }
-      .nav-links-desktop { display: none; }
-      nav { padding: 16px 28px; }
-
-      #hero { padding: 0 28px; }
-      .hero-meta { left: 28px; right: 28px; gap: 16px; flex-wrap: wrap; top: 76px; }
-      .hero-hl h1.l2 { margin-left: clamp(32px, 6vw, 80px); }
-      .hero-15 { display: none; }
-
-      .hero-strip { position: relative; margin-top: 48px; }
-      .hero-strip .strip-item { padding: 18px 28px; }
-
-      #projects { padding: 80px 0 80px 52px; }
-      .proj-row { grid-template-columns: 72px 1fr; gap: 16px 20px; padding-right: 28px; padding-left: 16px; }
-      .proj-tags-col, .proj-arrow { display: none; }
-
-      .stack-head { padding: 0 28px 32px; }
-      #stack { padding: 60px 0; }
-
-      #contact { padding: 100px 28px 80px; }
-      .contact-links { gap: 36px; }
-      .contact-bg-text { display: none; }
-      .doodle-arrow { display: none; }
-
-      footer { padding: 20px 28px; }
-      #tweaks-panel { width: 220px; bottom: 16px; right: 16px; }
-    }
-
-    /* ─── GLOBAL OVERFLOW GUARD ─── */
-    html, body { max-width: 100%; overflow-x: hidden; }
-
-    /* ─── RESPONSIVE: PHONE (≤600px) ─── */
-    @media (max-width: 600px) {
-      nav { padding: 14px 16px; }
-
-      /* Hero: pull meta out of absolute flow */
-      #hero {
-        min-height: auto;
-        padding: 0 16px 0;
-        justify-content: flex-start;
-        flex-direction: column;
-        padding-top: 72px;
-        gap: 0;
-      }
-      .hero-meta {
-        position: relative !important;
-        top: auto !important; left: auto !important; right: auto !important;
-        font-size: 10px; gap: 6px; flex-wrap: wrap;
-        margin-bottom: 24px;
-      }
-      .hero-meta span:nth-child(4),
-      .hero-meta span:nth-child(5),
-      .hero-meta span:nth-child(6) { display: none; }
-      .hero-15 { display: none !important; }
-
-      .hero-hl { padding-top: 0; width: 100%; }
-      .hero-handwrite { font-size: 15px; margin-top: 16px; }
-
-      /* Strip: static + vertical stack */
-      .hero-strip {
-        position: static !important;
-        flex-direction: column;
-        margin-top: 32px;
-        border-top: 1px solid var(--dim);
-        width: calc(100% + 32px);
-        margin-left: -16px;
-      }
-      .hero-strip .strip-item {
-        padding: 14px 16px;
-        border-right: none;
-        border-bottom: 1px solid var(--dim);
-      }
-      .hero-strip .strip-item:last-child { border-bottom: none; }
-      .s-tag { display: none; }
-      .s-name { font-size: 14px; }
-
-      /* Projects */
-      #projects { padding: 60px 0 60px 36px; }
-      .rotated-label { left: 6px; font-size: 7px; letter-spacing: 0.1em; }
-      .proj-row {
-        grid-template-columns: 40px 1fr;
-        gap: 8px 12px;
-        padding: 18px 16px 18px 8px;
-      }
-      .proj-num { font-size: 28px; }
-      .proj-info h3 { font-size: clamp(18px, 5vw, 28px); }
-      .proj-info p { font-size: 10.5px; line-height: 1.6; }
-
-      /* Stack marquee */
-      #stack { padding: 44px 0; }
-      .stack-head { padding: 0 16px 24px; }
-      .stack-head h2 { font-size: clamp(24px, 6.5vw, 36px); }
-      .mi { font-size: clamp(14px, 4vw, 22px); padding: 0 10px; }
-
-      /* Contact */
-      #contact { padding: 72px 16px 56px; }
-      .contact-hl { font-size: clamp(36px, 9.5vw, 56px); margin-bottom: 32px; line-height: 0.9; }
-      .contact-links { flex-direction: column; gap: 20px; }
-      .cl-item a { font-size: clamp(13px, 3.5vw, 18px); word-break: break-all; }
-      .contact-bg-text { display: none; }
-      .doodle-arrow { display: none; }
-
-      /* Footer */
-      footer { padding: 16px 16px; flex-direction: column; gap: 4px; align-items: flex-start; }
-
-      /* Tweaks */
-      #tweaks-panel { width: calc(100vw - 32px); right: 16px; bottom: 16px; left: 16px; }
-    }
-
-    /* ─── MOBILE MENU ─── */
-    #mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100vh;
-      background: var(--bg);
-      z-index: 98;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    #mobile-menu.open { display: flex; }
-
-    .mob-nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 80%;
-      max-width: 300px;
-    }
-    .mob-nav a {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 500;
-      font-size: 15px;
-      letter-spacing: 0.06em;
-      text-transform: lowercase;
-      color: var(--ink);
-      text-decoration: none;
-      text-align: center;
-      width: 100%;
-      padding: 22px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      transition: color 0.15s;
-      display: block;
-      box-sizing: border-box;
-    }
-    .mob-nav a:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
-    .mob-nav a:hover { color: var(--blue); }
-    .mob-num { display: none !important; }
-  </style>
+@media (max-width: 30rem) {
+  body { padding-top: 2.25rem; font-size: 14px; }
+}
+</style>
 </head>
 <body>
 
-<!-- ══ NAV ══ -->
-<nav>
-  <a href="#hero" class="nav-logo"><strong class="hl">MR</strong><span class="cursor-blink">_</span></a>
-  <ul class="nav-links-desktop">
-    <li><a href="#projects">projects</a></li>
-    <li><a href="#stack">stack</a></li>
-    <li><a href="#contact">contact</a></li>
-  </ul>
-  <!-- sketch burger button -->
-  <button class="burger" id="burger-btn" aria-label="Menu" onclick="toggleMenu()">
-    <svg id="burger-icon" width="32" height="24" viewBox="0 0 32 24" fill="none">
-      <path d="M2 4 C7 2.5 14 5 20 3.5 C24 2.5 29 4 30 3.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-      <path d="M2 12 C6 10.5 12 13 19 11.5 C23 10.5 28 12.5 30 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-      <path d="M2 20 C8 18.5 15 21 21 19.5 C25 18.5 29 20.5 30 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-    </svg>
-    <svg id="close-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" style="display:none;">
-      <path d="M5 5 C8 9 13 14 23 23" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-      <path d="M23 5 C19 9 14 14 5 23" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-      <!-- rough wobble on each stroke -->
-      <path d="M6 4 C9 8 13 13 22 24" stroke="currentColor" stroke-width="0.6" stroke-linecap="round" opacity="0.25"/>
-      <path d="M22 4 C18 8 13 14 6 24" stroke="currentColor" stroke-width="0.6" stroke-linecap="round" opacity="0.25"/>
-    </svg>
-  </button>
-</nav>
+<h1>Myroslav Repin</h1>
 
-<!-- ══ MOBILE MENU ══ -->
-<div id="mobile-menu">
-  <!-- sketch circle deco -->
-  <svg style="position:absolute;bottom:60px;right:20px;opacity:0.06;pointer-events:none;" width="140" height="140" viewBox="0 0 140 140" fill="none">
-    <path d="M70 8 C102 6 128 30 126 66 C124 102 98 128 62 126 C26 124 4 98 6 62 C8 26 38 8 70 8 Z" stroke="var(--blue)" stroke-width="4" fill="none"/>
-  </svg>
+<p>I write backend code, mostly Python. I live in Clairmont, Alberta.
+Before that, Ukraine.</p>
 
-  <nav class="mob-nav">
-    <a href="#projects" onclick="closeMenu()">Projects</a>
-    <a href="#stack" onclick="closeMenu()">Stack</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
-  </nav>
-</div>
+<h2>Working on</h2>
 
-<!-- ══ HERO ══ -->
-<section id="hero">
+<p><span class="what">Calnio.</span> Notion and Apple Calendar don't talk to
+each other, so I made them. One-way sync works and people use it. Two-way is
+harder than I expected: knowing which side changed first turns out to be the
+entire problem. <a href="https://calnio.myroslavrepin.com">calnio.myroslavrepin.com</a></p>
 
-  <div class="hero-meta">
-    <span class="hero-meta-dot"></span>
-    <span>/ 2026</span>
-    <span style="color:rgba(0,0,0,0.2)">·</span>
-    <span>developer · builder · indie hacker</span>
-    <span style="color:rgba(0,0,0,0.2)">·</span>
-    <span>kyiv → internet</span>
-  </div>
+<p><span class="what">camp-portal.</span> Registration for a youth
+Bible camp. Family accounts, payments, and a deadline that doesn't move,
+because the camp happens whether the site is ready or not.</p>
 
-  <!-- outline 15 watermark -->
-  <div class="hero-15 hl">15</div>
+<p><span class="what">MOO-1.</span> Mostly Operational Object. A model rocket
+that tries to stay pointed up: MPU6050, Kalman filter, PID loop, a PCB I made
+myself. Getting the control loop right is a calculus problem before it's a
+soldering problem, so it moves when I have real time to give it.</p>
 
-  <!-- main headline -->
-  <div class="hero-hl">
-    <h1 class="hl">I BUILD</h1>
-    <h1 class="hl l2">THINGS</h1>
+<h2>Done</h2>
 
-    <!-- hand-drawn period accent -->
-    <svg width="clamp(120px,14vw,200px)" height="14" viewBox="0 0 200 14" fill="none" class="underline" style="width:clamp(120px,14vw,200px)">
-      <path d="M3 10 C35 4 80 12 130 7 C160 4 182 10 197 8" stroke="var(--blue)" stroke-width="2.8" stroke-linecap="round" fill="none"/>
-      <!-- rough dot at end -->
-      <circle cx="197" cy="8" r="3.5" fill="var(--blue)" opacity="0.6"/>
-    </svg>
+<p><span class="what">utlib.</span> A few Python helpers, nothing anyone needs.
+I mostly wanted to know how publishing a package works, and now I do.
+<a href="https://pypi.org/project/utlib">It's on PyPI.</a></p>
 
-    <div class="hero-handwrite">self-taught. building real things. not waiting.</div>
-  </div>
+<p><span class="what">whisper-api.</span> Send audio over HTTP, get the text
+back by email. Runs on a Raspberry Pi under my desk.
+<a href="https://whisper-api.myroslavrepin.com">whisper-api.myroslavrepin.com</a></p>
 
-  <!-- bottom strip -->
-  <div class="hero-strip">
-    <a href="#projects" class="strip-item">
-      <span class="s-num">01</span>
-      <span class="s-name hl">Calnio</span>
-      <span class="s-tag">SaaS · Live</span>
-      <span class="s-arrow">↗</span>
-    </a>
-    <a href="#projects" class="strip-item">
-      <span class="s-num">02</span>
-      <span class="s-name hl">utlib</span>
-      <span class="s-tag">Open-source</span>
-      <span class="s-arrow">↗</span>
-    </a>
-    <a href="#projects" class="strip-item">
-      <span class="s-num">03</span>
-      <span class="s-name hl">Rocket</span>
-      <span class="s-tag">Hardware</span>
-      <span class="s-arrow">↗</span>
-    </a>
-  </div>
+<p><span class="what">Repin Contracting.</span> My brothers build fences and
+decks. Now they have a website.
+<a href="https://repincontracting.com">repincontracting.com</a></p>
 
-</section>
+<h2>Tools</h2>
 
-<!-- ══ PROJECTS ══ -->
-<section id="projects">
-  <div class="rotated-label">02 / projects</div>
+<p>Python, FastAPI, SQLAlchemy, Postgres. Some Vue, under protest.</p>
 
-  <!-- CALNIO -->
-  <div class="proj-row">
-    <div class="proj-num hl">01</div>
-    <div class="proj-info">
-      <h3 class="hl">Calnio</h3>
-      <p>Notion ↔ Apple Calendar · two-way, real-time sync · built &amp; shipped solo</p>
-    </div>
-    <div class="proj-tags-col">
-      <span>Python / FastAPI</span>
-      <span>Vue.js</span>
-      <span>PostgreSQL</span>
-      <span>Docker / Cloudflare</span>
-    </div>
-    <a class="proj-arrow" href="https://calnio.com" target="_blank">↗</a>
-  </div>
+<p>A Raspberry Pi 5 running Postgres, MinIO and Pi-hole behind a Cloudflare
+tunnel. Neovim, Nushell, macOS. I self-host more than is reasonable.</p>
 
-  <!-- UTLIB -->
-  <div class="proj-row">
-    <div class="proj-num hl">02</div>
-    <div class="proj-info">
-      <h3 class="hl">utlib</h3>
-      <p>Python utility library · published on PyPI · open-source, maintained</p>
-    </div>
-    <div class="proj-tags-col">
-      <span>Python</span>
-      <span>PyPI</span>
-      <span>Open-source</span>
-    </div>
-    <a class="proj-arrow" href="https://pypi.org/project/utlib" target="_blank">↗</a>
-  </div>
+<h2>Contact</h2>
 
-  <!-- ROCKET -->
-  <div class="proj-row">
-    <div class="proj-num hl">03</div>
-    <div class="proj-info">
-      <h3 class="hl">Rocket</h3>
-      <p>Stabilized flight system · hardware engineering experiment · built from scratch</p>
-    </div>
-    <div class="proj-tags-col">
-      <span>Hardware</span>
-      <span>Control Systems</span>
-      <span>Engineering</span>
-    </div>
-    <a class="proj-arrow" href="#contact">↗</a>
-  </div>
+<p><a href="mailto:myroslavrepin@gmail.com">myroslavrepin@gmail.com</a><br>
+<a href="https://github.com/myroslavrepin">github.com/myroslavrepin</a></p>
 
-</section>
+<p class="note">Last touched August 2026.</p>
 
-<!-- ══ STACK ══ -->
-<section id="stack">
-  <div class="stack-head">
-    <h2 class="hl">What I use to <span class="accent">ship.</span></h2>
-    <span class="slabel">03 / stack</span>
-  </div>
-
-  <div class="marquee-row">
-    <div class="marquee-track">
-      <div class="mfwd" id="mfwd1"></div>
-      <div class="mfwd" id="mfwd2"></div>
-    </div>
-  </div>
-  <div class="marquee-row">
-    <div class="marquee-track">
-      <div class="mbwd" id="mbwd1"></div>
-      <div class="mbwd" id="mbwd2"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CONTACT ══ -->
-<section id="contact">
-
-  <!-- doodle arrow -->
-  <svg class="doodle-arrow" width="140" height="90" viewBox="0 0 140 90" fill="none">
-    <path d="M10 20 C30 10 80 8 120 60" stroke="var(--blue)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
-    <path d="M120 60 L108 50 M120 60 L126 72" stroke="var(--blue)" stroke-width="2.4" stroke-linecap="round"/>
-    <text x="6" y="16" font-family="Caveat, cursive" font-size="14" fill="var(--blue)" opacity="0.7">let's talk</text>
-  </svg>
-
-  <div class="rotated-label" style="position:absolute;left:18px;top:50%;">04 / contact</div>
-
-  <div class="contact-bg-text hl">HELLO.</div>
-
-  <div class="contact-hl hl">
-    LET'S BUILD
-    <span class="accent">something.</span>
-  </div>
-
-  <div class="contact-links">
-    <div class="cl-item">
-      <span class="cl-label">Email</span>
-      <a href="mailto:myroslavrepin@gmail.com" class="hl">
-      myroslavrepin@gmail.com
-      </a>
-    <div class="cl-item">
-      <span class="cl-label">GitHub</span>
-      <a href="https://github.com/myroslavrepin" target="_blank" class="hl">github.com/myroslavrepin</a>
-    </div>
-    <div class="cl-item">
-      <span class="cl-label">Site</span>
-      <a href="https://myroslavrepin.com" target="_blank" class="hl">myroslavrepin.com</a>
-    </div>
-  </div>
-
-</section>
-
-<!-- ══ FOOTER ══ -->
-<footer>
-  <span class="f-copy">© 2026 Myroslav Repin</span>
-  <span class="f-script">made by hand ✦</span>
-</footer>
-
-<!-- ══ TWEAKS ══ -->
-<div id="tweaks-panel">
-  <div class="tp-title hl">Tweaks</div>
-
-  <div class="tp-group">
-    <span class="tp-label">Headline Font</span>
-    <div class="tp-opts">
-      <button class="tp-btn on" onclick="setFont('syne',this)">Syne</button>
-      <button class="tp-btn" onclick="setFont('bebas',this)">Bebas</button>
-      <button class="tp-btn" onclick="setFont('bricolage',this)">Bricolage</button>
-    </div>
-  </div>
-
-  <div class="tp-group">
-    <span class="tp-label">Accent Color</span>
-    <div class="tp-opts">
-      <button class="tp-btn on" onclick="setColor('#2B4FFF',this)">Blue</button>
-      <button class="tp-btn" onclick="setColor('#E5320A',this)">Red</button>
-      <button class="tp-btn" onclick="setColor('#008C5A',this)">Green</button>
-      <button class="tp-btn" onclick="setColor('#7B35FF',this)">Purple</button>
-    </div>
-  </div>
-
-  <div class="tp-group">
-    <span class="tp-label">Background</span>
-    <div class="tp-opts">
-      <button class="tp-btn on" onclick="setBg('#F7F6F1',this)">Warm</button>
-      <button class="tp-btn" onclick="setBg('#FFFFFF',this)">White</button>
-      <button class="tp-btn" onclick="setBg('#F2F0EC',this)">Stone</button>
-    </div>
-  </div>
-
-  <div class="tp-group">
-    <span class="tp-label">Proj. Number Style</span>
-    <div class="tp-opts">
-      <button class="tp-btn on" onclick="setNumStyle('outline',this)">Outline</button>
-      <button class="tp-btn" onclick="setNumStyle('filled',this)">Filled</button>
-      <button class="tp-btn" onclick="setNumStyle('hidden',this)">Hide</button>
-    </div>
-  </div>
-</div>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ── burger menu ── */
-function toggleMenu() {
-  const menu   = document.getElementById('mobile-menu');
-  const burger = document.getElementById('burger-icon');
-  const close  = document.getElementById('close-icon');
-  const isOpen = menu.classList.contains('open');
-  if (isOpen) {
-    menu.classList.remove('open');
-    burger.style.display = 'block';
-    close.style.display  = 'none';
-    document.body.style.overflow = '';
-  } else {
-    menu.classList.add('open');
-    burger.style.display = 'none';
-    close.style.display  = 'block';
-    document.body.style.overflow = 'hidden';
-  }
-}
-function closeMenu() {
-  document.getElementById('mobile-menu').classList.remove('open');
-  document.getElementById('burger-icon').style.display = 'block';
-  document.getElementById('close-icon').style.display  = 'none';
-  document.body.style.overflow = '';
-}
-
-/* ── marquee content ── */
-const row1 = ['Python','FastAPI','PostgreSQL','Vue.js','Docker','SQLAlchemy','Pydantic'];
-const row2 = ['Cloudflare','uv','Docker Compose','PyPI','FastAPI','SQLAlchemy','Python'];
-
-function buildMarquee(items) {
-  return items.map(t => `<span class="mi hl">${t}</span><span class="msep">·</span>`).join('');
-}
-['mfwd1','mfwd2'].forEach(id => { document.getElementById(id).innerHTML = buildMarquee(row1); });
-['mbwd1','mbwd2'].forEach(id => { document.getElementById(id).innerHTML = buildMarquee(row2); });
-
-/* ── tweaks protocol ── */
-window.addEventListener('message', e => {
-  if (e.data?.type === '__activate_edit_mode')   document.getElementById('tweaks-panel').classList.add('on');
-  if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').classList.remove('on');
-});
-window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "font": "syne",
-  "color": "#2B4FFF",
-  "bg": "#F7F6F1",
-  "numStyle": "outline"
-}/*EDITMODE-END*/;
-
-function setFont(name, btn) {
-  document.documentElement.className = 'font-' + name;
-  document.querySelectorAll('[onclick^="setFont"]').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { font: name } }, '*');
-}
-
-function setColor(c, btn) {
-  document.documentElement.style.setProperty('--blue', c);
-  document.querySelectorAll('[onclick^="setColor"]').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { color: c } }, '*');
-}
-
-function setBg(c, btn) {
-  document.documentElement.style.setProperty('--bg', c);
-  document.querySelectorAll('[onclick^="setBg"]').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { bg: c } }, '*');
-}
-
-function setNumStyle(s, btn) {
-  document.querySelectorAll('.proj-num').forEach(el => {
-    if (s === 'outline') {
-      el.style.color = 'transparent';
-      el.style['-webkit-text-stroke'] = '1.5px rgba(0,0,0,0.1)';
-    } else if (s === 'filled') {
-      el.style.color = 'var(--ink)';
-      el.style['-webkit-text-stroke'] = 'none';
-    } else {
-      el.style.visibility = 'hidden';
-    }
-  });
-  document.querySelectorAll('[onclick^="setNumStyle"]').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { numStyle: s } }, '*');
-}
-
-/* apply saved defaults */
-if (TWEAK_DEFAULTS.font !== 'syne') setFont(TWEAK_DEFAULTS.font, document.querySelector(`[onclick="setFont('${TWEAK_DEFAULTS.font}',this)"]`) || document.createElement('button'));
-if (TWEAK_DEFAULTS.color !== '#2B4FFF') document.documentElement.style.setProperty('--blue', TWEAK_DEFAULTS.color);
-if (TWEAK_DEFAULTS.bg !== '#F7F6F1') document.documentElement.style.setProperty('--bg', TWEAK_DEFAULTS.bg);
-</script>
 </body>
-</html>

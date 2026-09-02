@@ -6,9 +6,9 @@
 <title>Myroslav Repin</title>
 <meta name="description" content="Backend developer in Clairmont, Alberta.">
 <style>
-:root { --fg: #141414; --bg: #fdfdfc; --dim: #6b6b6b; }
+:root { --fg: #141414; --bg: #fdfdfc; --dim: #6b6b6b; --line: #cfcfca; }
 @media (prefers-color-scheme: dark) {
-  :root { --fg: #d8d8d4; --bg: #131313; --dim: #858580; }
+  :root { --fg: #d8d8d4; --bg: #131313; --dim: #858580; --line: #3a3a38; }
 }
 
 body {
@@ -37,60 +37,157 @@ h2 {
 .what { font-weight: 700; }
 .note { color: var(--dim); }
 
+#lang {
+  font: inherit;
+  color: var(--dim);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.15rem 0.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+}
+#lang:hover { color: var(--fg); border-color: var(--fg); }
+#lang:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+#lang[aria-pressed="true"] { color: var(--fg); border-color: var(--fg); }
+
 @media (max-width: 30rem) {
   body { padding-top: 2.25rem; font-size: 14px; }
+  #lang { top: 0.6rem; right: 0.75rem; font-size: 13px; }
 }
 </style>
 </head>
 <body>
 
+<button id="lang" type="button" aria-pressed="false">gen z mode</button>
+
 <h1>Myroslav Repin</h1>
 
-<p>I write backend code, mostly Python. I live in Clairmont, Alberta.
+<p id="intro">I write backend code, mostly Python. I live in Clairmont, Alberta.
 Before that, Ukraine.</p>
 
-<h2>Working on</h2>
+<h2 id="h-working">Working on</h2>
 
-<p><span class="what">Calnio.</span> Notion and Apple Calendar don't talk to
+<p id="p-calnio"><span class="what">Calnio.</span> Notion and Apple Calendar don't talk to
 each other, so I made them. One-way sync works and people use it. Two-way is
 harder than I expected: knowing which side changed first turns out to be the
 entire problem. <a href="https://calnio.myroslavrepin.com">calnio.myroslavrepin.com</a></p>
 
-<p><span class="what">camp-portal.</span> Registration for a youth
+<p id="p-camp"><span class="what">camp-portal.</span> Registration for a youth
 Bible camp. Family accounts, payments, and a deadline that doesn't move,
 because the camp happens whether the site is ready or not.</p>
 
-<p><span class="what">MOO-1.</span> Mostly Operational Object. A model rocket
+<p id="p-moo"><span class="what">MOO-1.</span> Mostly Operational Object. A model rocket
 that tries to stay pointed up: MPU6050, Kalman filter, PID loop, a PCB I made
 myself. Getting the control loop right is a calculus problem before it's a
 soldering problem, so it moves when I have real time to give it.</p>
 
-<h2>Done</h2>
+<h2 id="h-done">Done</h2>
 
-<p><span class="what">utlib.</span> A few Python helpers, nothing anyone needs.
+<p id="p-utlib"><span class="what">utlib.</span> A few Python helpers, nothing anyone needs.
 I mostly wanted to know how publishing a package works, and now I do.
 <a href="https://pypi.org/project/utlib">It's on PyPI.</a></p>
 
-<p><span class="what">whisper-api.</span> Send audio over HTTP, get the text
+<p id="p-whisper"><span class="what">whisper-api.</span> Send audio over HTTP, get the text
 back by email. Runs on a Raspberry Pi under my desk.
 <a href="https://whisper-api.myroslavrepin.com">whisper-api.myroslavrepin.com</a></p>
 
-<p><span class="what">Repin Contracting.</span> My brothers build fences and
+<p id="p-repin"><span class="what">Repin Contracting.</span> My brothers build fences and
 decks. Now they have a website.
 <a href="https://repincontracting.com">repincontracting.com</a></p>
 
-<h2>Tools</h2>
+<h2 id="h-tools">Tools</h2>
 
-<p>Python, FastAPI, SQLAlchemy, Postgres. Some Vue, under protest.</p>
+<p id="p-stack">Python, FastAPI, SQLAlchemy, Postgres. Some Vue, under protest.</p>
 
-<p>A Raspberry Pi 5 running Postgres, MinIO and Pi-hole behind a Cloudflare
+<p id="p-pi">A Raspberry Pi 5 running Postgres, MinIO and Pi-hole behind a Cloudflare
 tunnel. Neovim, Nushell, macOS. I self-host more than is reasonable.</p>
 
-<h2>Contact</h2>
+<h2 id="h-contact">Contact</h2>
 
 <p><a href="mailto:myroslavrepin@gmail.com">myroslavrepin@gmail.com</a><br>
 <a href="https://github.com/myroslavrepin">github.com/myroslavrepin</a></p>
 
-<p class="note">Last touched August 2026.</p>
+<p class="note" id="p-note">Last touched August 2026.</p>
+
+<script>
+(function () {
+  var genz = {
+    'intro': 'I cook backend code, mostly Python. Posted up in Clairmont, Alberta. ' +
+             'Before that, Ukraine. Character development, fr.',
+
+    'h-working': 'Locked in on',
+    'h-done': 'Already ate',
+    'h-tools': 'The loadout',
+    'h-contact': 'Slide in',
+
+    'p-calnio': '<span class="what">Calnio.</span> Notion and Apple Calendar were straight ' +
+                'up not speaking, so I made them talk it out. One-way sync is live and ' +
+                'people actually use it, which is crazy. Two-way is the final boss: ' +
+                'clocking which side moved first is the whole fight, no cap. ' +
+                '<a href="https://calnio.myroslavrepin.com">calnio.myroslavrepin.com</a>',
+
+    'p-camp': '<span class="what">camp-portal.</span> Registration for a youth Bible camp. ' +
+              'Family accounts, payments, and a deadline that does not negotiate, because ' +
+              'camp is happening whether the site is cooked or I am.',
+
+    'p-moo': '<span class="what">MOO-1.</span> Mostly Operational Object. A model rocket ' +
+             'aura farming by staying pointed up: MPU6050, Kalman filter, PID loop, and a ' +
+             'PCB I made with my bare hands. The control loop is a calculus problem before ' +
+             'it is a soldering problem, so it only moves when I am genuinely locked in.',
+
+    'p-utlib': '<span class="what">utlib.</span> A few Python helpers nobody asked for. ' +
+               'Lowkey I just wanted to know how shipping a package works, and now I do. ' +
+               '<a href="https://pypi.org/project/utlib">It is on PyPI.</a>',
+
+    'p-whisper': '<span class="what">whisper-api.</span> Yap into the mic, send it over HTTP, ' +
+                 'get the text back in your inbox. Hosted on a Raspberry Pi living under my ' +
+                 'desk rent free. ' +
+                 '<a href="https://whisper-api.myroslavrepin.com">whisper-api.myroslavrepin.com</a>',
+
+    'p-repin': '<span class="what">Repin Contracting.</span> My brothers build fences and ' +
+               'decks. Now they have a website, so it is official. ' +
+               '<a href="https://repincontracting.com">repincontracting.com</a>',
+
+    'p-stack': 'Python, FastAPI, SQLAlchemy, Postgres. Some Vue, but only under duress.',
+
+    'p-pi': 'A Raspberry Pi 5 running Postgres, MinIO and Pi-hole behind a Cloudflare tunnel. ' +
+            'Neovim, Nushell, macOS. I self-host way more than any doctor would recommend.',
+
+    'p-note': 'Last touched August 2026. Still standing.'
+  };
+
+  var btn = document.getElementById('lang');
+  var plain = {};
+
+  for (var id in genz) {
+    var el = document.getElementById(id);
+    if (el) { plain[id] = el.innerHTML; }
+  }
+
+  function render(on) {
+    var source = on ? genz : plain;
+    for (var id in genz) {
+      var el = document.getElementById(id);
+      if (el) { el.innerHTML = source[id]; }
+    }
+    btn.textContent = on ? 'english mode' : 'gen z mode';
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    document.documentElement.lang = 'en';
+    try { localStorage.setItem('genz', on ? '1' : '0'); } catch (e) {}
+  }
+
+  var stored = '0';
+  try { stored = localStorage.getItem('genz') || '0'; } catch (e) {}
+  if (stored === '1') { render(true); }
+
+  btn.addEventListener('click', function () {
+    render(btn.getAttribute('aria-pressed') !== 'true');
+  });
+})();
+</script>
 
 </body>
+</html>
